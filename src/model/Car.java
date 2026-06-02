@@ -7,13 +7,13 @@ public class Car {
     private final int year;
     private final int power;
 
-    private Car(String model, int year, int power){
+    private Car(String model, int year, int power) {
         this.model = model;
         this.year = year;
         this.power = power;
     }
 
-    public String getModel(){
+    public String getModel() {
         return model;
     }
 
@@ -34,29 +34,29 @@ public class Car {
                 '}';
     }
 
-    public static class Builder{
+    public static class Builder {
         private String model;
         private int year;
         private int power;
 
-        public Builder setModel(String model){
+        public Builder setModel(String model) {
             this.model = model;
             return this;
         }
 
-        public Builder setYear(int year){
+        public Builder setYear(int year) {
             this.year = year;
             return this;
         }
 
-        public Builder setPower(int power){
+        public Builder setPower(int power) {
             this.power = power;
             return this;
         }
 
-        public Car build(){
-            CarValidator.validate(model,year,power);
-           return new Car(model, year, power);
+        public Car build() {
+            CarValidator.validate(model, year, power);
+            return new Car(model, year, power);
         }
     }
 }
