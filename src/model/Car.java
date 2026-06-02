@@ -1,5 +1,7 @@
 package model;
 
+import validation.CarValidator;
+
 public class Car {
     private final String model;
     private final int year;
@@ -53,6 +55,7 @@ public class Car {
         }
 
         public Car build(){
+            CarValidator.validate(model,year,power);
            return new Car(model, year, power);
         }
     }
