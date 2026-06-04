@@ -1,5 +1,8 @@
 package collection;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class CustomArrayList<T> {
     private Object[] elements;
     private int size;
@@ -49,5 +52,14 @@ public class CustomArrayList<T> {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    public T set(int index, T element) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index");
+        }
+        T old = get(index);
+        elements[index] = element;
+        return old;
     }
 }
