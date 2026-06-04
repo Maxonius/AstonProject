@@ -17,8 +17,6 @@ public class CustomArrayListTest {
 
         System.out.println(list.size());
 
-        System.out.println(list.get(1));
-
         System.out.println(list.isEmpty());
 
         try {
@@ -30,9 +28,10 @@ public class CustomArrayListTest {
         for (int i = 0; i < 20; i++) {
             list.add("" + i);
         }
-
         System.out.println(list.size());
-
         System.out.println(list.get(16));
+
+        list.set(0,"Ferrari");
+        System.out.println(list.get(0));
     }
 }
