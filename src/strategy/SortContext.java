@@ -1,5 +1,6 @@
 package strategy;
 
+import collection.CustomArrayList;
 import model.Car;
 
 import java.util.Comparator;
@@ -24,7 +25,7 @@ public class SortContext {
      * @param cars список автомобилей.
      * @param comparator компаратор, определяющий порядок сортировки.
      */
-    public void executeSort(List<Car> cars, Comparator<Car> comparator){
+    public void executeSort(CustomArrayList<Car> cars, Comparator<Car> comparator){
         System.out.println("Сортировка: TimSort");
         long startTime = System.currentTimeMillis();
         strategy.sort(cars, comparator);
@@ -39,7 +40,7 @@ public class SortContext {
      * @param comparator компаратор, определяющий порядок сортировки четных элементов.
      * @param number функция, извлекающая числовое поле (power или year).
      */
-    public void executeSortWithRule(List<Car> cars, Comparator<Car> comparator, Function<Car, Integer> number){
+    public void executeSortWithRule(CustomArrayList<Car> cars, Comparator<Car> comparator, Function<Car, Integer> number){
         System.out.println("Сортировка (четные/нечетные): TimSort");
         long startTime = System.currentTimeMillis();
         strategy.sortWithRule(cars, comparator, number);
