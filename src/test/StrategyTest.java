@@ -1,38 +1,42 @@
 package test;
 import collection.CustomArrayList;
+import comparator.ModelComparator;
 import comparator.PowerComparator;
+import comparator.YearComparator;
 import strategy.SortContext;
-import strategy.TimSort;
 import model.Car;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class StrategyTest {
     public static void main(String[] args) {
-        Car bmw = new Car.Builder()
-                .setModel("BMW")
-                .setPower(200)
-                .setYear(2020)
-                .build();
-        Car honda = new Car.Builder()
-                .setModel("Honda")
-                .setPower(140)
-                .setYear(2016)
-                .build();
-        Car toyota = new Car.Builder()
-                .setModel("Toyota")
-                .setPower(350)
-                .setYear(1998)
-                .build();
         CustomArrayList<Car> cars = new CustomArrayList<>();
-        cars.add(bmw);
-        cars.add(honda);
-        cars.add(toyota);
+        for (int i = 0; i < 50; i++) {
+            cars.add(
+                    new Car.Builder()
+                            .setModel("Car" + i)
+                            .setYear(1950 + i)
+                            .setPower((int)(Math.random() * 500))
+                            .build()
+            );
+        }
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i));
         }
         SortContext context = new SortContext();
         context.executeSort(cars, new PowerComparator());
+        System.out.println("------------------------------------------------------------------\nPOWER_COMPARATOR");
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i));
+        }
+        context.executeSort(cars, new YearComparator());
+        System.out.println("------------------------------------------------------------------\nYEAR_COMPARATOR");
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i));
+        }
+        context.executeSort(cars, new ModelComparator());
+        System.out.println("------------------------------------------------------------------\nMODEL_COMPARATOR");
+        for (int i = 0; i < cars.size(); i++) {
+            System.out.println(cars.get(i));
+        }
     }
 }

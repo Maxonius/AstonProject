@@ -1,9 +1,9 @@
 package strategy;
 
+import collection.CustomArrayList;
 import model.Car;
 
 import java.util.Comparator;
-import java.util.List;
 import java.util.function.Function;
 
 /**
@@ -17,7 +17,7 @@ public interface SortStrategy {
      * @param cars список автомобилей.
      * @param comparator компаратор, определяющий порядок сортировки.
      */
-    void sort(List<Car> cars, Comparator<Car> comparator);
+    void sort(CustomArrayList<Car> cars, Comparator<Car> comparator);
 
     /**
      * Сортировка с правилом четное/нечетное.
@@ -28,5 +28,5 @@ public interface SortStrategy {
      * @param comparator компаратор, определяющий порядок сортировки четных элементов.
      * @param number функция, извлекающая числовое поле (power или year).
      */
-    void sortWithRule(List<Car> cars, Comparator<Car> comparator, Function<Car, Integer> number);
+    void sortWithRule(CustomArrayList<Car> cars, Comparator<Car> comparator, Function<Car, Integer> number);
 }
