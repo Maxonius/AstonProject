@@ -10,15 +10,37 @@ import model.Car;
 public class StrategyTest {
     public static void main(String[] args) {
         CustomArrayList<Car> cars = new CustomArrayList<>();
-        for (int i = 0; i < 50; i++) {
+        String[] models = {
+                "BMW",
+                "Audi",
+                "Toyota",
+                "Mazda",
+                "Honda",
+                "Jaguar",
+                "Mercedes",
+                "Lada",
+                "Volkswagen",
+                "Ford"
+        };
+        for (int i = 0; i < models.length; i++) {
+
             cars.add(
                     new Car.Builder()
-                            .setModel("Car" + i)
-                            .setYear(1950 + i)
-                            .setPower((int)(Math.random() * 500))
+                            .setModel(models[i])
+                            .setYear(2000 + i)
+                            .setPower(100 + i)
                             .build()
             );
         }
+//        for (int i = 0; i < 50; i++) {
+//            cars.add(
+//                    new Car.Builder()
+//                            .setModel("Car" + i)
+//                            .setYear(1950 + i)
+//                            .setPower((int)(Math.random() * 500))
+//                            .build()
+//            );
+//        }
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i));
         }
