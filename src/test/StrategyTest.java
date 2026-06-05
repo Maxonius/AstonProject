@@ -45,17 +45,17 @@ public class StrategyTest {
             System.out.println(cars.get(i));
         }
         SortContext context = new SortContext();
-        context.executeSort(cars, new PowerComparator());
+        context.executeSort(cars, new PowerComparator()); //сортировка по мощности
         System.out.println("------------------------------------------------------------------\nPOWER_COMPARATOR");
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i));
         }
-        context.executeSort(cars, new YearComparator());
+        context.executeSort(cars, new YearComparator()); //сортровка по году
         System.out.println("------------------------------------------------------------------\nYEAR_COMPARATOR");
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i));
         }
-        context.executeSort(cars, new ModelComparator());
+        context.executeSort(cars, new ModelComparator()); //сортировка по модели
         System.out.println("------------------------------------------------------------------\nMODEL_COMPARATOR");
         for (int i = 0; i < cars.size(); i++) {
             System.out.println(cars.get(i));

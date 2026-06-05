@@ -59,6 +59,15 @@ public class TimSort implements SortStrategy{
 
     @Override
     public void sort(CustomArrayList<Car> cars, Comparator<Car> comparator) {
+        if (cars == null){
+            throw new IllegalArgumentException("Collection can't be null!");
+        }
+        if (comparator == null){
+            throw new IllegalArgumentException("Comparator can't be null!");
+        }
+        if (cars.size() < 2){
+            return;
+        }
         int n = cars.size();
 
         for (int i = 0; i < n; i+=RUN) {
@@ -78,6 +87,37 @@ public class TimSort implements SortStrategy{
 
     @Override
     public void sortWithRule(CustomArrayList<Car> cars, Comparator<Car> comparator, Function<Car, Integer> number) {
+        if (cars == null){
+            throw new IllegalArgumentException("Collection can't be null!");
+        }
+        if (comparator == null){
+            throw new IllegalArgumentException("Comparator can't be null!");
+        }
+        if (number == null){
+            throw new IllegalArgumentException("Function can't be null!");
+        }
+        if (cars.size() < 2){
+            return;
+        }
+        CustomArrayList<Car> evenCars = new CustomArrayList<>();
 
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+
+            if (number.apply(car) % 2 == 0){
+                evenCars.add(car);
+            }
+        }
+        sort(evenCars, comparator);
+
+        int evenIndex = 0;
+        for (int i = 0; i < cars.size(); i++) {
+            Car car = cars.get(i);
+
+            if (number.apply(car) % 2 == 0){
+                cars.set(i, evenCars.get(evenIndex));
+                evenIndex++;
+            }
+        }
     }
 }
