@@ -4,9 +4,16 @@ import collection.CustomArrayList;
 import comparator.ModelComparator;
 import comparator.PowerComparator;
 import comparator.YearComparator;
+import filler.DataFiller;
+import filler.FileFiller;
+import filler.ManualFiller;
+import filler.RandomFiller;
+import io.RWsystem;
 import model.Car;
 import strategy.SortContext;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.Scanner;
 import java.util.function.Function;
@@ -87,11 +94,33 @@ public class MainMenu {
 
         int choice = readInt("Выберите способ: ", 0, 3);
 
-        //TODO: выбор филлера
+        DataFiller filler = switch (choice){
+            case 1 -> {
+                System.out.print("Введите путь к файлу (Enter = data/cars.csv): ");
+                String path = scanner.nextLine();
+                if (path.isEmpty()) path = "data/cars.csv";
+                File file = new File(path);
+                if(!file.exists()){
+                    System.out.println("Файл не найден: " + file.getAbsolutePath());
+                }
+                yield new FileFiller(file);
+            }
+            case 2 -> new RandomFiller();
+            case 3 -> new ManualFiller(scanner);
+            case 0 -> null;
+            default -> null;
+        };
+
+        if (filler == null){
+            if (choice != 0) {
+                System.out.println("Некорректный выбор.");
+            }
+            return;
+        }
 
         System.out.println("Заполнение...");
         long start = System.currentTimeMillis();
-        // TODO: заполнение
+        filler.fill(collectionSize);
         long end = System.currentTimeMillis();
         if (carCollection == null || carCollection.isEmpty()) {
             System.out.println("Не удалось заполнить коллекцию.");
@@ -164,7 +193,16 @@ public class MainMenu {
             return;
         }
 
-        //TODO: заполнение файла
+        System.out.print("Введите путь к файлу (Enter = data/cars.csv): ");
+        String path = scanner.nextLine();
+        if (path.isEmpty()) path = "data/cars.csv";
+
+        try {
+            RWsystem.appendToCSV(carCollection, path);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void searchOccurrences() {
