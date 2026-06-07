@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="00c50cff-156a-4619-ae8c-01e7f8199f89" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/strategy/TimSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/strategy/TimSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/StrategyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/StrategyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filler/FileFiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filler/FileFiller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filler/ManualFiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filler/ManualFiller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filler/RandomFiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/filler/RandomFiller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +37,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.EvenNumsTest.executor": "Run",
+    "Application.FillerTest.executor": "Run",
     "Application.IOSystemTest.executor": "Run",
     "Application.Main.executor": "Run",
     "Application.RWSystemTest.executor": "Run",
@@ -46,7 +47,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "debizhan",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/JavaProject/AstonProject",
@@ -65,9 +66,9 @@
       <recent name="C:\Users\Максим\OneDrive\Рабочий стол\JAVA\AstonProject\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EvenNumsTest">
-    <configuration name="EvenNumsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="test.EvenNumsTest" />
+  <component name="RunManager" selected="Application.FillerTest">
+    <configuration name="FillerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.FillerTest" />
       <module name="AstonProject" />
       <extension name="coverage">
         <pattern>
@@ -107,7 +108,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.EvenNumsTest" />
+        <item itemvalue="Application.FillerTest" />
         <item itemvalue="Application.RWSystemTest" />
         <item itemvalue="Application.IOSystemTest" />
       </list>
@@ -131,6 +132,8 @@
       <workItem from="1780493598094" duration="10247000" />
       <workItem from="1780575836271" duration="8834000" />
       <workItem from="1780590938011" duration="1193000" />
+      <workItem from="1780844129366" duration="608000" />
+      <workItem from="1780845560690" duration="9969000" />
     </task>
     <servers />
   </component>
