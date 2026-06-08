@@ -10,6 +10,7 @@ import filler.ManualFiller;
 import filler.RandomFiller;
 import io.RWsystem;
 import model.Car;
+import multithreading.MultiThreadCounter;
 import strategy.SortContext;
 
 import java.io.File;
@@ -120,7 +121,7 @@ public class MainMenu {
 
         System.out.println("Заполнение...");
         long start = System.currentTimeMillis();
-        filler.fill(collectionSize);
+        carCollection = filler.fill(collectionSize);
         long end = System.currentTimeMillis();
         if (carCollection == null || carCollection.isEmpty()) {
             System.out.println("Не удалось заполнить коллекцию.");
@@ -211,7 +212,31 @@ public class MainMenu {
             return;
         }
 
-        //TODO: многопоточка
+        System.out.println("\nИскомый автомобиль");
+        System.out.print("Мощность: ");
+        String powerInput = scanner.nextLine();
+        System.out.print("Модель: ");
+        String model = scanner.nextLine();
+        System.out.print("Год: ");
+        String yearInput = scanner.nextLine();
+
+        int power, year;
+        try {
+            power = Integer.parseInt(powerInput);
+            year = Integer.parseInt(yearInput);
+        } catch (NumberFormatException e) {
+            System.out.println("Ошибка: мощность и год должны быть числами.");
+            return;
+        }
+
+        Car target = new Car.Builder()
+                .setPower(power)
+                .setModel(model)
+                .setYear(year)
+                .build();
+        int threadCount = readInt("Количество потоков (1-16): ", 1, 16);
+        int count = MultiThreadCounter.countOccurrences(carCollection, target, threadCount);
+        System.out.println("Найдено вхождений: " + count);
     }
 
     private void printCollection() {

@@ -24,7 +24,6 @@ public class FileFiller implements DataFiller{
 
     @Override
     public CustomArrayList<Car> fill(int count){
-        // TODO: заполнение из файла. Файлы хранятся в папке data
         CustomArrayList<Car> res = new CustomArrayList<>();
 
         if (file == null || !file.exists()) {

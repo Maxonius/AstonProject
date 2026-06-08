@@ -17,7 +17,6 @@ public class ManualFiller implements DataFiller {
 
     @Override
     public CustomArrayList<Car> fill(int count) {
-        // TODO: заполнение вручную
         CustomArrayList<Car> res = new CustomArrayList<>();
 
         if (scanner == null) {
