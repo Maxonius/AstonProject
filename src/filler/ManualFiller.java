@@ -20,29 +20,35 @@ public class ManualFiller implements DataFiller {
         CustomArrayList<Car> res = new CustomArrayList<>();
 
         if (scanner == null) {
-            System.err.println("ERROR: no scanner provided");
+            System.out.println("[ОШИБКА]: не указан объект для ввода");
             return res;
         }
 
         if (count <= 0) {
-            System.err.println("ERROR: number of cars must be at least 1");
+            System.out.println("[ОШИБКА]: количество машин должно быть больше нуля");
             return res;
         }
 
         List<Car> carList = new ArrayList<>();
-        System.out.println("Enter info about " + count + " cars: ");
-        System.out.println("Tip: Mercedes-Benz,2025,500");
+        System.out.println("Введите информацию о " + count + " машинах: ");
+        System.out.println("Пример: Mercedes-Benz,2025,500");
 
         for (int i = 0; i < count; i++) {
-            System.out.print("Car number " + i + ": ");
+            System.out.print("Машина номер " + i + ": ");
             String input = scanner.nextLine();
+
+            if (input == null || input.trim().isEmpty()) {
+                System.out.println("[ВНИМАНИЕ]: пустая строка");
+                i--;
+                continue;
+            }
 
             Car temp = parseInputToCar(input);
 
             if (temp != null) {
                 carList.add(temp);
             } else {
-                System.err.println("ERROR: wrong string input");
+                System.out.println("[ОШИБКА]: неверная строка");
                 i--;
             }
         }
@@ -58,7 +64,7 @@ public class ManualFiller implements DataFiller {
 
         String[] parts = input.split(",");
         if (parts.length < 3) {
-            System.err.println("ERROR: 3 items needed(model, year, power)");
+            System.out.println("[ОШИБКА]: необходимо указать 3 элемента(модель, год и мощность)");
             return null;
         }
 
@@ -69,12 +75,12 @@ public class ManualFiller implements DataFiller {
 
             // Дополнительная валидация
             if (year < 1886 || year > 2025) {
-                System.err.println("Ошибка: год должен быть между 1886 и 2025");
+                System.out.println("[ОШИБКА]: год должен быть между 1886 и 2025");
                 return null;
             }
 
             if (power < 0 || power > 2000) {
-                System.err.println("Ошибка: мощность должна быть между 0 и 2000 л.с.");
+                System.out.println("[ОШИБКА]: мощность должна быть между 0 и 2000 л.с.");
                 return null;
             }
 
@@ -85,7 +91,7 @@ public class ManualFiller implements DataFiller {
                     .build();
 
         } catch (NumberFormatException e) {
-            System.err.println("Ошибка: год и мощность должны быть числами");
+            System.out.println("[ОШИБКА]: год и мощность должны быть числами");
             return null;
         }
     }

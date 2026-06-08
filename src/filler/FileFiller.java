@@ -27,7 +27,7 @@ public class FileFiller implements DataFiller{
         CustomArrayList<Car> res = new CustomArrayList<>();
 
         if (file == null || !file.exists()) {
-            System.err.println("Файл не существует: " + file);
+            System.out.println("[ОШИБКА]: такого файла не существует: " + file);
             return res;
         }
 
@@ -51,7 +51,7 @@ public class FileFiller implements DataFiller{
             }
 
         } catch (IOException e) {
-            System.err.println("ERROR: during reading file: " + e.getMessage());
+            System.out.println("[ОШИБКА]: при чтении файла возникла ошибка: " + e.getMessage());
             return res;
         }
 
@@ -61,7 +61,7 @@ public class FileFiller implements DataFiller{
         // Используем StreamFill для заполнения коллекции
         StreamFill.fill(res, carArray);
 
-        System.out.println("Loaded " + res.size() + " objects from file: " + file.getName());
+        System.out.println("Загружено " + res.size() + " объектов из файла: " + file.getName());
 
         return res;
     }
@@ -76,10 +76,10 @@ public class FileFiller implements DataFiller{
                         .setPower(Integer.parseInt(parts[2].trim()))
                         .build();
             } else {
-                System.err.println("ERROR: wrong string format (less than 3 items): " + line);
+                System.out.println("[ОШИБКА]: неверный формат строки (меньше чем 3 элемента): " + line);
             }
         } catch (NumberFormatException e) {
-            System.err.println("ERROR: bad number: " + line);
+            System.out.println("ERROR: bad number: " + line);
         }
         return null;
     }
