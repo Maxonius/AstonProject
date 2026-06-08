@@ -36,7 +36,7 @@ public class RandomFiller implements DataFiller {
         CustomArrayList<Car> res = new CustomArrayList<>();
 
         if (count <= 0) {
-            System.err.println("ERROR: count must be positive");
+            System.out.println("[ОШИБКА]: число машин должно быть больше нуля");
             return res;
         }
 
