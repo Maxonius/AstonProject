@@ -1,6 +1,7 @@
 package model;
 
 import validation.CarValidator;
+
 import java.util.Objects;
 
 public class Car {
@@ -32,8 +33,8 @@ public class Car {
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
         return year == car.year &&
-               power == car.power &&
-               Objects.equals(model, car.model);
+                power == car.power &&
+                Objects.equals(model, car.model);
     }
 
     @Override
@@ -43,11 +44,10 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "model='" + model + '\'' +
-                ", year=" + year +
-                ", power=" + power +
-                '}';
+        return String.format(
+                "Автомобиль: модель = %s, год выпуска = %d, мощность = %d л.с.",
+                model, year, power
+        );
     }
 
     public static class Builder {
