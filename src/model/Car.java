@@ -71,8 +71,11 @@ public class Car {
         }
 
         public Car build() {
-            CarValidator.validate(model, year, power);
-            return new Car(model, year, power);
+            if(CarValidator.validate(model, year, power)){
+                return new Car(model, year, power);
+            } else {
+                return null;
+            }
         }
     }
 }

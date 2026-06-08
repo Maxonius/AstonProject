@@ -234,6 +234,9 @@ public class MainMenu {
                 .setModel(model)
                 .setYear(year)
                 .build();
+        if (target == null){
+            return;
+        }
         int threadCount = readInt("Количество потоков (1-16): ", 1, 16);
         int count = MultiThreadCounter.countOccurrences(carCollection, target, threadCount);
         System.out.println("Найдено вхождений: " + count);
