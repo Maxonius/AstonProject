@@ -60,10 +60,10 @@ public class TimSort implements SortStrategy{
     @Override
     public void sort(CustomArrayList<Car> cars, Comparator<Car> comparator) {
         if (cars == null){
-            throw new IllegalArgumentException("Collection can't be null!");
+            throw new IllegalArgumentException("Коллекция не может быть равна null!");
         }
         if (comparator == null){
-            throw new IllegalArgumentException("Comparator can't be null!");
+            throw new IllegalArgumentException("Компаратор не может быть равен null!");
         }
         if (cars.size() < 2){
             return;
@@ -88,13 +88,13 @@ public class TimSort implements SortStrategy{
     @Override
     public void sortWithRule(CustomArrayList<Car> cars, Comparator<Car> comparator, Function<Car, Integer> number) {
         if (cars == null){
-            throw new IllegalArgumentException("Collection can't be null!");
+            throw new IllegalArgumentException("Коллекция не может быть равна null!");
         }
         if (comparator == null){
-            throw new IllegalArgumentException("Comparator can't be null!");
+            throw new IllegalArgumentException("Компаратор не может быть равен null!");
         }
         if (number == null){
-            throw new IllegalArgumentException("Function can't be null!");
+            throw new IllegalArgumentException("Функция не может быть равна null!");
         }
         if (cars.size() < 2){
             return;
