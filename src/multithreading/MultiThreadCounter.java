@@ -36,6 +36,7 @@ public class MultiThreadCounter {
                 threads[i].join();
             } catch (InterruptedException e) {
                 System.err.println("Поток прерван: " + e.getMessage());
+                Thread.currentThread().interrupt();
             }
             total += results[i];
         }
