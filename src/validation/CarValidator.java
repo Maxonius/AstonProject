@@ -1,15 +1,19 @@
 package validation;
 
 public class CarValidator {
-    public static void validate(String model, int year, int power) {
+    public static boolean validate(String model, int year, int power) {
         if (model == null || model.isBlank()) {
-            throw new IllegalArgumentException("Model is invalid");
+            System.out.println("Неверная модель");
+            return false;
         }
         if (year < 1900 || year > 2030) {
-            throw new IllegalArgumentException("Year is invalid");
+            System.out.println("Неверный год");
+            return false;
         }
         if (power < 1 || power > 1000) {
-            throw new IllegalArgumentException("Power is invalid");
+            System.out.println("Неверная мощность");
+            return false;
         }
+        return true;
     }
 }
