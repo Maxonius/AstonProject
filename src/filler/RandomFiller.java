@@ -33,7 +33,6 @@ public class RandomFiller implements DataFiller {
 
     @Override
     public CustomArrayList<Car> fill(int count) {
-        // TODO: заполнение рандомными данными
         CustomArrayList<Car> res = new CustomArrayList<>();
 
         if (count <= 0) {
