@@ -6,7 +6,7 @@ public class CarValidator {
             System.out.println("Неверная модель");
             return false;
         }
-        if (year < 1900 || year > 2030) {
+        if (year < 1886 || year > 2025) {
             System.out.println("Неверный год");
             return false;
         }
